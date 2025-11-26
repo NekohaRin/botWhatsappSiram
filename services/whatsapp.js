@@ -6,7 +6,7 @@ import makeWASocket, {
 import qrcode from "qrcode-terminal";
 import P from "pino";
 import { triggerPump } from "./esp.js";
-import { execCommand } from "../controllers/commands.js";
+import { execCommand } from "../routes/backcommands.js";
 
 
 export async function startWhatsAppBot() {
