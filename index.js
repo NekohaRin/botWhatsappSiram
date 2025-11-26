@@ -23,7 +23,7 @@ import express from 'express';
 import http from 'http';
 import dotenv from 'dotenv';
 import pino from 'pino';
-import { setupWebSocketServer } from './wsServer.js';
+import { setupWebSocketServer } from './doubwsServer.js';
 import commandRouter from './routes/commands.js';
 
 

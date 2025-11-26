@@ -19,15 +19,18 @@ import express from "express";
 // }
 
 // Dipanggil dari bot
+
 export async function triggerPump(duration) {
+  // fallback quick HTTP to esp simulator (if you still use it)
   try {
-    const res = await fetch("", {
+    const res = await fetch(`http://localhost:4000/pump`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ duration })
     });
-    console.log(`📤 Mengirim perintah ke ESP simulasi (${duration} menit)`);
+    return await res.json();
   } catch (err) {
-    console.error("❌ Gagal menghubungi ESP:", err.message);
+    console.error("Failed to call ESP simulator", err.message);
+    return null;
   }
 }
